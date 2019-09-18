@@ -14,8 +14,7 @@ export class FormComponent implements OnInit {
 
 
   ngOnInit() {
-    // console.log(this.data);
-    this.userForm = this.fb.group({
+       this.userForm = this.fb.group({
       name1: [''],
       mail: [''],
       contact2: [''],
@@ -28,15 +27,9 @@ export class FormComponent implements OnInit {
 
   }
 
-  ngOnChanges(changes:any){
-    this.data = changes.data.currentValue;
-  }
+ 
   onSubmit() {
-
-    // let x = this.userForm.value;
-    // console.log(x);
     this.data.push(this.userForm.value);
-
     alert("Added");
   }
 
