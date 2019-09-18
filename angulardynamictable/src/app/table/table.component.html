@@ -1,0 +1,18 @@
+
+<div class = "tableview">
+        <table style="width:100%">
+          <tr>
+            
+            <th  *ngFor= 'let column of header '>{{column}}</th>
+            
+        </tr>
+        
+                <tr *ngFor='let data of data'>
+                
+                  <td *ngFor="let column of header">{{data[column]}}</td>
+                  
+                </tr>
+          </table>
+</div>
+
+          

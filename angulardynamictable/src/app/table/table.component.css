@@ -1,0 +1,15 @@
+.tableview{
+    padding-top: 55px;
+}
+tr{
+    background-color: rgb(211, 186, 158);
+}
+table, th {
+    border: 1px solid  rgb(146, 101, 50);
+  }
+  
+   .active, th:hover {
+    background-color: rgb(168, 164, 164);
+    color: white;
+  }
+ 
