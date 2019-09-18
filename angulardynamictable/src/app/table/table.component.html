@@ -3,7 +3,8 @@
         <table style="width:100%">
           <tr>
             
-            <th  *ngFor= 'let column of header '>{{column}}</th>
+            <th  *ngFor= 'let column of header '>{{column}}<button ng-click="sorting()"><i class="fa fa-sort-asc" aria-hidden="true"></i>
+            </button></th>
             
         </tr>
         

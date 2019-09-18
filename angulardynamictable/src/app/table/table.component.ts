@@ -54,5 +54,12 @@ export class TableComponent implements OnInit {
 
     }
   }
+  sorting(keyName) {
+    this.header.sort(function (a, b) {
+      if (a[keyName] <b[keyName]) return -1;
+      if (a[keyName] >b[keyName]) return 1;
+      return 0;
+    });
+  }
 
 }
