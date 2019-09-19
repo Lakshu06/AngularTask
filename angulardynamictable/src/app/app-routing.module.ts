@@ -3,7 +3,6 @@ import { Routes, RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { TableComponent } from './table/table.component';
-import { FormComponent } from './form/form.component';
 import {TablesortComponent }   from './tablesort/tablesort.component';
  
 
@@ -12,8 +11,7 @@ const routes: Routes = [
   
   { path: '', component: TableComponent },
    { path: 'tableview', component: TableComponent },
-   { path: 'CreateUser', component: FormComponent },
-   {path: 'sort' ,component:TablesortComponent},
+     {path: 'sort' ,component:TablesortComponent},
 
 ];
 

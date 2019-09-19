@@ -4,7 +4,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { TableComponent } from './table/table.component';
-import { FormComponent } from './form/form.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TablesortComponent } from './tablesort/tablesort.component';
 
@@ -15,8 +14,7 @@ import { TablesortComponent } from './tablesort/tablesort.component';
     AppComponent,
     HeaderComponent,
     TableComponent,
-    FormComponent,
-    TablesortComponent,
+       TablesortComponent,
     
   
   ],
