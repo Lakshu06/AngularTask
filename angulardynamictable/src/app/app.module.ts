@@ -6,6 +6,8 @@ import { HeaderComponent } from './header/header.component';
 import { TableComponent } from './table/table.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TablesortComponent } from './tablesort/tablesort.component';
+import { FilterPipe } from './filter';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -15,15 +17,19 @@ import { TablesortComponent } from './tablesort/tablesort.component';
     HeaderComponent,
     TableComponent,
        TablesortComponent,
-    
+       FilterPipe,
   
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
+    
   ],
+  
   providers: [],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }

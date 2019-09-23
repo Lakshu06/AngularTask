@@ -1,22 +1,29 @@
+<div class="tableview">
+  <table>
+    <tr>
+      <th *ngFor='let column of header  '>
+        <div>
+          <!-- <button type="button"><i class="fa fa-search" style="margin:4px 4px 0 0"></i></button> -->
+          <input (click)="setKey(column)" type="text" class="form-control" name="searchString"
+            placeholder="Type to search..." [(ngModel)]="searchString" />
+        </div>
+      </th>
+    </tr>
 
-<div class = "tableview">
-        <table style="width:100%">
-          <tr>
-            
-            <th  *ngFor= 'let column of header '>{{column}}
-              <!-- <i class="fa fa-sort" aria-hidden="true"></i> -->
-              <i *ngIf="ascendingStatus" class="fa fa-sort-desc" aria-hidden="true" (click) ="descsort(column)"></i>
-              <i *ngIf="descendingStatus" class="fa fa-sort-asc" aria-hidden="true" (click)=' Asecsort(column)'></i>
-            </th>
-            
-        </tr>
-        
-                <tr *ngFor='let data of data'>
-                
-                  <td *ngFor="let column of header">{{data[column]}}</td>
-                  
-                </tr>
-          </table>
+
+    <tr>
+
+      <th *ngFor='let column of header'>{{column}}
+
+        <!-- <i class="fa fa-sort" aria-hidden="true"></i> -->
+        <i *ngIf="ascendingStatus" class="fa fa-sort-desc" aria-hidden="true" (click)="descsort(column)"></i>
+        <i *ngIf="descendingStatus" class="fa fa-sort-asc" aria-hidden="true" (click)=' Asecsort(column)'></i>
+      </th>
+
+    </tr>
+
+    <tr *ngFor="let record of data | filter : x : searchString; ">
+      <td *ngFor="let column of header ">{{record[column]}}</td>
+    </tr>
+  </table>
 </div>
-
-          

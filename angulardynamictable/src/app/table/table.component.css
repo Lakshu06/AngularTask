@@ -1,5 +1,6 @@
 .tableview{
     padding-top: 55px;
+    overflow: auto;
 }
 tr{
     background-color: rgb(211, 186, 158);
@@ -12,4 +13,4 @@ table, th {
     background-color: rgb(168, 164, 164);
     color: white;
   }
- 
+  

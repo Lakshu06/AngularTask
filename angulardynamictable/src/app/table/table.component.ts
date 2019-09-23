@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { headersToString } from 'selenium-webdriver/http';
 
 
 @Component({
@@ -7,8 +8,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./table.component.css']
 })
 export class TableComponent implements OnInit {
+  x: any;
 ascendingStatus: boolean = true;
 descendingStatus: boolean = true;
+
   data = [
     { 'name1': 'd',     'mail': 'ajkbh@gmail.com', 'contact2': '7234567890', 'address': 'jaipur',      'post': 'software engineer', 'experience': 8 },
     { 'name1': 'a',     'mail': 'hh@gmail.com', 'contact2': '1234567890', 'address': 'malviya nagar',  'post': 'network engineer', 'experience': 7 },
@@ -27,10 +30,13 @@ descendingStatus: boolean = true;
     { 'name1': 'x',         'mail': 'lakshita@gmail.com', 'contact2':'4567890', 'address': 'jawahar nagar','post': 'tester', 'experience': 10, 'companyname': 'ranosys' },
     { 'name1': 'y',         'mail': 'sneha@gmail.com', 'contact2': '0234567890', 'address': 'ajmer',     'post': 'project tester', 'experience': 8 },
     { 'name1': 'ef',        'address': 'sddg', 'post': 'software engineer', 'experience': '8' },
-   {'name1': 're',        'technology':'angular'},
+   {'name1': 'rsf','address': 'sanagner', 'post': 'software engineer','experience': '8','technology':'angular'}
 
   ];
   header: any = [];
+  
+  public searchString:string;
+  
 
   constructor() {
     let keys = [];
@@ -44,19 +50,28 @@ descendingStatus: boolean = true;
     }
 
     this.header = keys;
-
-
-
   }
+
   Asecsort(keyname)
 {
   { this.ascendingStatus = true;
     this.descendingStatus = false;
     this.data.sort(function (a, b) {
+
+     
+        // if (a[keyname] <b[keyname] ) return -1;
+        // if (a[keyname] >b[keyname] ) return 1;
+        // return 0;
+        if (a === b) {
+          return 0;
+      }
+        if( a[keyname]== "")
+        return 1;
+    if(b[keyname] == "")
+        return -1;
+    return ((a[keyname]  < b[keyname]) ? -1 : ((a[keyname]>b[keyname]) ? 1 : 0));
+   
       
-      if (a[keyname] <b[keyname] ) return -1;
-      if (a[keyname] >b[keyname] ) return 1;
-      return 0;
     });
   }
 
@@ -66,10 +81,18 @@ descsort(keyname)
   { this.ascendingStatus = false;
     this.descendingStatus = true;
     this.data.sort(function (a, b) {  
-            if (a[keyname] >b[keyname]  ) return -1;
-      if (a[keyname] <b[keyname] ) return 1;
-     
-      return 0;
+  // if (a[keyname] >b[keyname]  ) return -1;
+// if (a[keyname] <b[keyname] ) return 1;
+// return 0;
+if(a===b)
+{
+  return 0;
+}
+    else if(a[keyname] == "")
+            return 1;
+      else  if(b[keyname]== "")
+            return -1;
+      else  return ((a[keyname] < b[keyname]) ? 1 : ((a[keyname] > b[keyname]) ? -1 : 0));
     });
   }
 
@@ -80,6 +103,10 @@ descsort(keyname)
 
     }
   }
-  
+  setKey(data){
+    this.x = data;
+    console.log(this.x);
+  }
+ 
 
 }
