@@ -1,11 +1,11 @@
 <div class="tableview">
   <table>
     <tr>
-      <th *ngFor='let column of header  '>
+      <th *ngFor="let column of header ;let i=index ">
         <div>
           <!-- <button type="button"><i class="fa fa-search" style="margin:4px 4px 0 0"></i></button> -->
           <input (click)="setKey(column)" type="text" class="form-control" name="searchString"
-            placeholder="Type to search..." [(ngModel)]="searchString" />
+            placeholder="Type to search..." [(ngModel)]="searchString[i]" />
         </div>
       </th>
     </tr>
@@ -22,7 +22,7 @@
 
     </tr>
 
-    <tr *ngFor="let record of data | filter : x : searchString; ">
+    <tr *ngFor="let record of data | filter : x : searchString[in]; let in =index">
       <td *ngFor="let column of header ">{{record[column]}}</td>
     </tr>
   </table>
