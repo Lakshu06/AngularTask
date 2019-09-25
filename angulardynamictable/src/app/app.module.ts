@@ -5,7 +5,6 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { TableComponent } from './table/table.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { TablesortComponent } from './tablesort/tablesort.component';
 import { FilterPipe } from './filter';
 import { FormsModule } from '@angular/forms';
 
@@ -17,7 +16,7 @@ import { FormsModule } from '@angular/forms';
     AppComponent,
     HeaderComponent,
     TableComponent,
-       TablesortComponent,
+       
        FilterPipe,
   
   ],
