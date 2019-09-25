@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { headersToString } from 'selenium-webdriver/http';
-import { KeyValuePipe } from '@angular/common';
+import { FormGroup, FormControl } from '@angular/forms';
+
+
 
 
 @Component({
@@ -9,11 +10,10 @@ import { KeyValuePipe } from '@angular/common';
   styleUrls: ['./table.component.css']
 })
 export class TableComponent implements OnInit {
-  x: any;
-  ascendingStatus: boolean = true;
-  descendingStatus: boolean = true;
 
-  data = [
+  x: any;
+
+ data = [
     { 'name1': 'd', 'mail': 'ajkbh@gmail.com', 'contact2': '7234567890', 'address': 'jaipur', 'post': 'software engineer', 'experience': '8 ' },
     { 'name1': 'a', 'mail': 'hh@gmail.com', 'contact2': '1234567890', 'address': 'malviya nagar', 'post': 'network engineer', 'experience': '7' },
     { 'name1': 'b', 'mail': 'aaa@gmail.com', 'contact2': '4234567890', 'address': 'sikar', 'post': 'software developer', 'experience': '5 ' },
@@ -34,10 +34,9 @@ export class TableComponent implements OnInit {
     { 'name1': 'rsf', 'address': 'sanagner', 'post': 'software engineer', 'experience': '7', 'technology': 'angular' }
 
   ];
+
   header: any;
-
-  public searchString: Array<string> = [];
-
+  public searchString: any;
 
   constructor() {
     let keys = [];
@@ -47,20 +46,16 @@ export class TableComponent implements OnInit {
           keys.push(eachKey);
         }
       })
-
     }
-
-    this.header = keys;
+   this.header = keys;
   }
 
   Asecsort(keyname) {
-    this.ascendingStatus = true;
-    this.descendingStatus = false;
-    
     for (let key of this.data) {
-         if (!isNaN(key[keyname])) {
+
+        if (!isNaN(key[keyname])) {
           console.log("g");
-           this.data.sort(function (a, b) {
+          this.data.sort(function (a, b) {
             if (a[keyname] === b[keyname]) {
               return 0;
             }
@@ -68,83 +63,80 @@ export class TableComponent implements OnInit {
               return 1;
             else if (b[keyname] == "")
               return -1;
-                       
-          else return a[keyname] - b[keyname] });
-         }
 
-        else 
-        {
-        this.data.sort(function (a, b) {
-         if (a[keyname] === b[keyname]) {
-          return 0;
+            else return a[keyname] - b[keyname]
+          });
         }
-       else if (a[keyname] =="")
-          return 1;
-        else if (b[keyname] == "")
-          return -1;
-       else  return ((a[keyname] < b[keyname]) ? -1 : ((a[keyname] > b[keyname]) ? 1 : 0));
-      });
-    }
 
+        else {
+          this.data.sort(function (a, b) {
+            if (a[keyname] === b[keyname]) {
+              return 0;
+            }
+            else if (a[keyname] == "")
+              return 1;
+            else if (b[keyname] == "")
+              return -1;
+            else return ((a[keyname] < b[keyname]) ? -1 : ((a[keyname] > b[keyname]) ? 1 : 0));
+          });
+        }
+
+    }
   }
-}
 
   descsort(keyname) {
-    this.ascendingStatus = false;
-    this.descendingStatus = true;
     for (let key of this.data) {
-      if (!isNaN(key[keyname])) {
-           
-            this.data.sort(function (a, b) {
-              
-              if (a[keyname] === b[keyname]) {
-                return 0;
-              }
-              else if (a[keyname] =="")
-                return 1;
-              else if (b[keyname] == "")
-                return -1; 
-                  
-                           
-              return b[keyname] - a[keyname] });
-          }
-          else {
-            this.data.sort(function (a, b) {
-      
-              if (a === b) {
-                return 0;
-              }
-              else if (a[keyname] == "")
-                return 1;
-              else if (b[keyname] == "")
-                return -1;
-              else return ((a[keyname] < b[keyname]) ? 1 : ((a[keyname] > b[keyname]) ? -1 : 0));
-            });
-          }
-      
-         
-         }
-      }
-     
         
-   
-  
+        if (!isNaN(key[keyname])) {
 
+          this.data.sort(function (a, b) {
+
+            if (a[keyname] === b[keyname]) {
+              return 0;
+            }
+            else if (a[keyname] == "")
+              return 1;
+            else if (b[keyname] == "")
+              return -1;
+
+
+            return b[keyname] - a[keyname]
+          });
+        }
+
+        else {
+          this.data.sort(function (a, b) {
+
+            if (a === b) {
+              return 0;
+            }
+            else if (a[keyname] == "")
+              return 1;
+            else if (b[keyname] == "")
+              return -1;
+            else return ((a[keyname] < b[keyname]) ? 1 : ((a[keyname] > b[keyname]) ? -1 : 0));
+          });
+        }
+    }
+  }
   ngOnInit() {
-     for (let x of this.header) {
+    for (let x of this.header) {
       for (let dataValue of this.data) {
         if (!dataValue[x]) {
-        dataValue[x] = "";
+          dataValue[x] = "";
         }
       }
     }
- }
+  }
+
   setKey(data) {
     this.x = data;
     console.log(this.x);
   }
 
-
-
+  saveRange(data): void {
+    this.searchString = data;
+    console.log(this.searchString);
+  }
 }
 
