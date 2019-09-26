@@ -10,9 +10,8 @@ import { FormGroup, FormControl } from '@angular/forms';
   styleUrls: ['./table.component.css']
 })
 export class TableComponent implements OnInit {
-
   x: any;
-
+ 
  data = [
     { 'name1': 'd', 'mail': 'ajkbh@gmail.com', 'contact2': '7234567890', 'address': 'jaipur', 'post': 'software engineer', 'experience': '8 ' },
     { 'name1': 'a', 'mail': 'hh@gmail.com', 'contact2': '1234567890', 'address': 'malviya nagar', 'post': 'network engineer', 'experience': '7' },
@@ -31,8 +30,8 @@ export class TableComponent implements OnInit {
     { 'name1': 'x', 'mail': 'lakshita@gmail.com', 'contact2': '4567890', 'address': 'jawahar nagar', 'post': 'tester', 'experience': ' 10', 'companyname': 'ranosys' },
     { 'name1': 'y', 'mail': 'sneha@gmail.com', 'contact2': '0234567890', 'address': 'ajmer', 'post': 'project tester', 'experience': '8' },
     { 'name1': 'ef', 'address': 'sddg', 'post': 'software engineer', 'experience': ' 8 ' },
-    { 'name1': 'rsf', 'address': 'sanagner', 'post': 'software engineer', 'experience': '7', 'technology': 'angular' }
-
+    { 'name1': 'rsf', 'address': 'sanagner', 'post': 'software engineer', 'experience': '7', 'technology': 'angular' },
+{ 'name' :'xyz',' id':'3'}
   ];
 
   header: any;
@@ -43,8 +42,7 @@ export class TableComponent implements OnInit {
     for (let i in this.data) {
       Object.keys(this.data[i]).forEach(function (eachKey) {
         if (keys.indexOf(eachKey) == -1) {
-          keys.push(eachKey);
-        }
+          keys.push(eachKey);}
       })
     }
    this.header = keys;
@@ -52,10 +50,8 @@ export class TableComponent implements OnInit {
 
   Asecsort(keyname) {
     for (let key of this.data) {
-
-        if (!isNaN(key[keyname])) {
-          console.log("g");
-          this.data.sort(function (a, b) {
+     if (!isNaN(key[keyname])) {
+     this.data.sort(function (a, b) {
             if (a[keyname] === b[keyname]) {
               return 0;
             }
@@ -67,8 +63,7 @@ export class TableComponent implements OnInit {
             else return a[keyname] - b[keyname]
           });
         }
-
-        else {
+     else {
           this.data.sort(function (a, b) {
             if (a[keyname] === b[keyname]) {
               return 0;
@@ -86,11 +81,8 @@ export class TableComponent implements OnInit {
 
   descsort(keyname) {
     for (let key of this.data) {
-        
-        if (!isNaN(key[keyname])) {
-
-          this.data.sort(function (a, b) {
-
+       if (!isNaN(key[keyname])) {
+        this.data.sort(function (a, b) {
             if (a[keyname] === b[keyname]) {
               return 0;
             }
@@ -98,15 +90,11 @@ export class TableComponent implements OnInit {
               return 1;
             else if (b[keyname] == "")
               return -1;
-
-
             return b[keyname] - a[keyname]
           });
         }
-
-        else {
+      else {
           this.data.sort(function (a, b) {
-
             if (a === b) {
               return 0;
             }
@@ -118,7 +106,8 @@ export class TableComponent implements OnInit {
           });
         }
     }
-  }
+    }
+
   ngOnInit() {
     for (let x of this.header) {
       for (let dataValue of this.data) {
@@ -134,9 +123,11 @@ export class TableComponent implements OnInit {
     console.log(this.x);
   }
 
+  
   saveRange(data): void {
     this.searchString = data;
     console.log(this.searchString);
   }
+    
 }
 

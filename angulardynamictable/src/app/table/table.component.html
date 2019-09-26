@@ -1,28 +1,20 @@
 <div class="tableview">
   <table>
     <tr>
-      <th *ngFor="let column of header">
+      <th *ngFor="let column of header; let i=index">
         <div>
-         
-          <!-- <button type="button"><i class="fa fa-search" style="margin:4px 4px 0 0"></i></button> -->
-          <input (click)="setKey(column)"  type="text" class="form-control" 
-              placeholder="Type to search..."    (input)="saveRange($event.target.value)" />
-            
+          <input (click)="setKey(column)" type="text" class="form-control" placeholder="Type to search..."
+            (input)="saveRange($event.target.value)" />
         </div>
       </th>
     </tr>
 
 
     <tr>
-
       <th *ngFor='let column of header'>{{column}}
-
-        
-        <!-- <i class="fa fa-sort" aria-hidden="true"></i> -->
-        <i  class="fa fa-sort-desc" aria-hidden="true" (click)="descsort(column)"></i>
-        <i  class="fa fa-sort-asc" aria-hidden="true" (click)= "Asecsort(column)"></i>
-       </th>
-
+        <i class="fa fa-sort-desc" aria-hidden="true" (click)="descsort(column)"></i>
+        <i class="fa fa-sort-asc" aria-hidden="true" (click)="Asecsort(column)"></i>
+      </th>
     </tr>
 
     <tr *ngFor="let record of data  | filter : x : searchString; ">

@@ -29,10 +29,10 @@ ul {
   color: rgb(146, 101, 50);
 }
 
-.active, a:hover {
+.active , a:hover {
   background-color: black;
   color: white;
 }
 /* .active {
-  background-color: black;
+  background-color: red;
 } */
