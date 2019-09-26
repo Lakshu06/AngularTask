@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
-
+import { Input } from '@angular/core';
 
 
 
@@ -11,102 +11,96 @@ import { FormGroup, FormControl } from '@angular/forms';
 })
 export class TableComponent implements OnInit {
   x: any;
- 
- data = [
-    { 'name1': 'd', 'mail': 'ajkbh@gmail.com', 'contact2': '7234567890', 'address': 'jaipur', 'post': 'software engineer', 'experience': '8 ' },
-    { 'name1': 'a', 'mail': 'hh@gmail.com', 'contact2': '1234567890', 'address': 'malviya nagar', 'post': 'network engineer', 'experience': '7' },
-    { 'name1': 'b', 'mail': 'aaa@gmail.com', 'contact2': '4234567890', 'address': 'sikar', 'post': 'software developer', 'experience': '5 ' },
-    { 'name1': 'c', 'mail': 'dddd@gmail.com', 'contact2': '1834567890', 'address': 'sitapura', 'post': 'mean stack developer', 'experience': '9' },
-    { 'name1': 'f', 'mail': 'j@gmail.com', 'contact2': '76234567890', 'address': 'indiagate', 'post': 'andriod developer' },
-    { 'name1': 'e', 'mail': 'h@gmail.com', 'contact2': '8234567890', 'address': 'kumbha marg', 'post': 'ios developer', 'experience': ' 1' },
-    { 'name1': 'l', 'mail': 'g@gmail.com', 'contact2': '9234567890', 'address': 'haldighati', 'post': 'drupal developer', 'experience': '19' },
-    { 'name1': 'sneha', 'mail': 'k@gmail.com', 'contact2': '6234567890', 'address': 'jagatpura', 'post': 'team lead', 'experience': '2 ' },
-    { 'name1': 'ashish', 'mail': 'm@gmail.com', 'contact2': '7034567890', 'address': 'raja park', 'post': 'tech lead', 'experience': '4' },
-    { 'name1': 'avinash', 'mail': 'o@gmail.com', 'contact2': '3334567890', 'address': 'durgapura', 'post': 'salsforce developer', 'experience': ' 6' },
-    { 'name1': 'lakshita', 'mail': 'q@gmail.com', 'contact2': '4334567890', 'address': 'gopalpura', 'post': 'python developer', 'experience': '10' },
-    { 'name1': 'h', 'mail': 'yy@gmail.com', 'contact2': '6934567890', 'address': 'sanagner', 'post': 'magento', 'experience': '12' },
-    { 'name1': 'i', 'mail': 'fffffr@gmail.com', 'contact2': '9234567890', 'address': 'chatrala circle', 'post': 'ui/ux designer', 'experience': '3' },
-    { 'name1': 'z', 'mail': 'ghh@gmail.com', 'contact2': '3434567890', 'address': 'partap ngar', 'post': 'associate software engineer', 'experience': '11' },
-    { 'name1': 'x', 'mail': 'lakshita@gmail.com', 'contact2': '4567890', 'address': 'jawahar nagar', 'post': 'tester', 'experience': ' 10', 'companyname': 'ranosys' },
-    { 'name1': 'y', 'mail': 'sneha@gmail.com', 'contact2': '0234567890', 'address': 'ajmer', 'post': 'project tester', 'experience': '8' },
-    { 'name1': 'ef', 'address': 'sddg', 'post': 'software engineer', 'experience': ' 8 ' },
-    { 'name1': 'rsf', 'address': 'sanagner', 'post': 'software engineer', 'experience': '7', 'technology': 'angular' },
-{ 'name' :'xyz',' id':'3'}
-  ];
+  @Input() data: any;
+
+  //  data = [
+  //     { 'name1': 'd', 'mail': 'ajkbh@gmail.com', 'contact2': '7234567890', 'address': 'jaipur', 'post': 'software engineer', 'experience': '8 ' },
+  //     { 'name1': 'a', 'mail': 'hh@gmail.com', 'contact2': '1234567890', 'address': 'malviya nagar', 'post': 'network engineer', 'experience': '7' },
+  //     { 'name1': 'b', 'mail': 'aaa@gmail.com', 'contact2': '4234567890', 'address': 'sikar', 'post': 'software developer', 'experience': '5 ' },
+  //     { 'name1': 'c', 'mail': 'dddd@gmail.com', 'contact2': '1834567890', 'address': 'sitapura', 'post': 'mean stack developer', 'experience': '9' },
+  //     { 'name1': 'f', 'mail': 'j@gmail.com', 'contact2': '76234567890', 'address': 'indiagate', 'post': 'andriod developer' },
+  //     { 'name1': 'e', 'mail': 'h@gmail.com', 'contact2': '8234567890', 'address': 'kumbha marg', 'post': 'ios developer', 'experience': ' 1' },
+  //     { 'name1': 'l', 'mail': 'g@gmail.com', 'contact2': '9234567890', 'address': 'haldighati', 'post': 'drupal developer', 'experience': '19' },
+  //     { 'name1': 'sneha', 'mail': 'k@gmail.com', 'contact2': '6234567890', 'address': 'jagatpura', 'post': 'team lead', 'experience': '2 ' },
+  //     { 'name1': 'ashish', 'mail': 'm@gmail.com', 'contact2': '7034567890', 'address': 'raja park', 'post': 'tech lead', 'experience': '4' },
+  //     { 'name1': 'avinash', 'mail': 'o@gmail.com', 'contact2': '3334567890', 'address': 'durgapura', 'post': 'salsforce developer', 'experience': ' 6' },
+  //     { 'name1': 'lakshita', 'mail': 'q@gmail.com', 'contact2': '4334567890', 'address': 'gopalpura', 'post': 'python developer', 'experience': '10' },
+  //     { 'name1': 'h', 'mail': 'yy@gmail.com', 'contact2': '6934567890', 'address': 'sanagner', 'post': 'magento', 'experience': '12' },
+  //     { 'name1': 'i', 'mail': 'fffffr@gmail.com', 'contact2': '9234567890', 'address': 'chatrala circle', 'post': 'ui/ux designer', 'experience': '3' },
+  //     { 'name1': 'z', 'mail': 'ghh@gmail.com', 'contact2': '3434567890', 'address': 'partap ngar', 'post': 'associate software engineer', 'experience': '11' },
+  //     { 'name1': 'x', 'mail': 'lakshita@gmail.com', 'contact2': '4567890', 'address': 'jawahar nagar', 'post': 'tester', 'experience': ' 10', 'companyname': 'ranosys' },
+  //     { 'name1': 'y', 'mail': 'sneha@gmail.com', 'contact2': '0234567890', 'address': 'ajmer', 'post': 'project tester', 'experience': '8' },
+  //     { 'name1': 'ef', 'address': 'sddg', 'post': 'software engineer', 'experience': ' 8 ' },
+  //     { 'name1': 'rsf', 'address': 'sanagner', 'post': 'software engineer', 'experience': '7', 'technology': 'angular' },
+  // { 'name' :'xyz',' id':'3'}
+  //   ];
 
   header: any;
   public searchString: any;
 
   constructor() {
-    let keys = [];
-    for (let i in this.data) {
-      Object.keys(this.data[i]).forEach(function (eachKey) {
-        if (keys.indexOf(eachKey) == -1) {
-          keys.push(eachKey);}
-      })
-    }
-   this.header = keys;
+    this.setchangesValue();
   }
 
   Asecsort(keyname) {
     for (let key of this.data) {
-     if (!isNaN(key[keyname])) {
-     this.data.sort(function (a, b) {
-            if (a[keyname] === b[keyname]) {
-              return 0;
-            }
-            else if (a[keyname] == "")
-              return 1;
-            else if (b[keyname] == "")
-              return -1;
+      if (!isNaN(key[keyname])) {
+        this.data.sort(function (a, b) {
+          if (a[keyname] === b[keyname]) {
+            return 0;
+          }
+          else if (a[keyname] == "")
+            return 1;
+          else if (b[keyname] == "")
+            return -1;
 
-            else return a[keyname] - b[keyname]
-          });
-        }
-     else {
-          this.data.sort(function (a, b) {
-            if (a[keyname] === b[keyname]) {
-              return 0;
-            }
-            else if (a[keyname] == "")
-              return 1;
-            else if (b[keyname] == "")
-              return -1;
-            else return ((a[keyname] < b[keyname]) ? -1 : ((a[keyname] > b[keyname]) ? 1 : 0));
-          });
-        }
+          else return a[keyname] - b[keyname]
+        });
+      }
+      else {
+        this.data.sort(function (a, b) {
+          if (a[keyname] === b[keyname]) {
+            return 0;
+          }
+          else if (a[keyname] == "")
+            return 1;
+          else if (b[keyname] == "")
+            return -1;
+          else return ((a[keyname] < b[keyname]) ? -1 : ((a[keyname] > b[keyname]) ? 1 : 0));
+        });
+      }
 
     }
   }
 
   descsort(keyname) {
     for (let key of this.data) {
-       if (!isNaN(key[keyname])) {
+      if (!isNaN(key[keyname])) {
         this.data.sort(function (a, b) {
-            if (a[keyname] === b[keyname]) {
-              return 0;
-            }
-            else if (a[keyname] == "")
-              return 1;
-            else if (b[keyname] == "")
-              return -1;
-            return b[keyname] - a[keyname]
-          });
-        }
+          if (a[keyname] === b[keyname]) {
+            return 0;
+          }
+          else if (a[keyname] == "")
+            return 1;
+          else if (b[keyname] == "")
+            return -1;
+          return b[keyname] - a[keyname]
+        });
+      }
       else {
-          this.data.sort(function (a, b) {
-            if (a === b) {
-              return 0;
-            }
-            else if (a[keyname] == "")
-              return 1;
-            else if (b[keyname] == "")
-              return -1;
-            else return ((a[keyname] < b[keyname]) ? 1 : ((a[keyname] > b[keyname]) ? -1 : 0));
-          });
-        }
+        this.data.sort(function (a, b) {
+          if (a === b) {
+            return 0;
+          }
+          else if (a[keyname] == "")
+            return 1;
+          else if (b[keyname] == "")
+            return -1;
+          else return ((a[keyname] < b[keyname]) ? 1 : ((a[keyname] > b[keyname]) ? -1 : 0));
+        });
+      }
     }
-    }
+  }
 
   ngOnInit() {
     for (let x of this.header) {
@@ -116,6 +110,7 @@ export class TableComponent implements OnInit {
         }
       }
     }
+   
   }
 
   setKey(data) {
@@ -123,11 +118,27 @@ export class TableComponent implements OnInit {
     console.log(this.x);
   }
 
-  
+
   saveRange(data): void {
     this.searchString = data;
     console.log(this.searchString);
   }
-    
+
+  ngOnChanges(changes) {
+    this.data = changes.data.currentValue;
+    this.setchangesValue();
+
+  }
+  setchangesValue() {
+    let keys = [];
+    for (let i in this.data) {
+      Object.keys(this.data[i]).forEach(function (eachKey) {
+        if (keys.indexOf(eachKey) == -1) {
+          keys.push(eachKey);
+        }
+      })
+    }
+    this.header = keys;
+  }
 }
 
