@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 # URL
+=======
+# Project URL
+>>>>>>> f7d00158b73f1908601ef7748d29a94677e6ba69
 https://reusabledatatable.firebaseapp.com/
 
 # Angulardynamictable

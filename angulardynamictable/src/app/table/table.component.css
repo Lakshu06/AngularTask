@@ -30,3 +30,11 @@ th i{
   th:hover i {
     display: inline-block;
   }
+  h2{
+    text-align: center;
+    color: green;
+
+  }
+  img{
+    margin-left:600px;
+  }

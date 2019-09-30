@@ -12,6 +12,8 @@ import { Input } from '@angular/core';
 export class TableComponent implements OnInit {
   x: any;
   @Input() data: any;
+  @Input() data1:any;
+  public y:any;
 
 
   header: any;
@@ -106,18 +108,32 @@ export class TableComponent implements OnInit {
   ngOnChanges(changes) {
     this.data = changes.data.currentValue;
     this.setchangesValue();
+    this.maping();
 
   }
   setchangesValue() {
     let keys = [];
     for (let i in this.data) {
+
       Object.keys(this.data[i]).forEach(function (eachKey) {
-        if (keys.indexOf(eachKey) == -1) {
-          keys.push(eachKey);
+        
+        if (keys.indexOf(eachKey) == -1 ){
+        keys.push(eachKey);
+       
         }
+       
       })
     }
     this.header = keys;
   }
+
+
+  maping(){
+    
+  this.y =  this.data1;
+  console.log(this.y);
+  }
+
+  
 }
 
