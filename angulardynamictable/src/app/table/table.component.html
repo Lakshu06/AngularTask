@@ -1,30 +1,29 @@
 <div class="tableview">
-  <table *ngIf="data">
+  <table *ngIf="tableObj.data">
     <tr>
-      <th *ngFor="let column of header; let i=index" >
+      <th *ngFor="let column of tableObj['headers']">
         <div>
-
-          <input *ngIf ="y[i].column==column && y[i].search==true"  (click)="setKey(column)" type="text" class="form-control" placeholder="Type to search..."
-            (input)="saveRange($event.target.value)" />
+          <input *ngIf="column['search']" (click)="setKey(column.key)" type="text" class="form-control"
+            placeholder="Type to search..." (input)="saveRange($event.target.value)" />
         </div>
       </th>
     </tr>
 
 
     <tr>
-      <th *ngFor='let column of header ;let i=index'>{{column}}
-        <i *ngIf ="y[i].column==column && y[i].sort==true" class="fa fa-sort-desc" aria-hidden="true" (click)="descsort(column)"></i>
-        <i *ngIf ="y[i].column==column && y[i].sort==true" class="fa fa-sort-asc" aria-hidden="true" (click)="Asecsort(column)"></i>
+      <th *ngFor='let column of tableObj.headers '>{{column.key}}
+        <i *ngIf="column['sort']" class="fa fa-sort-desc" aria-hidden="true" (click)="descsort(column.key)"></i>
+        <i *ngIf="column['sort']" class="fa fa-sort-asc" aria-hidden="true" (click)="Asecsort(column.key)"></i>
       </th>
     </tr>
 
-    <tr *ngFor="let record of data  | filter : x : searchString;">
-      <td *ngFor="let column of header ">{{record[column]}}</td>
+    <tr *ngFor="let record of tableObj.data | filter : x : searchString;">
+      <td *ngFor="let column of tableObj.headers ">{{record[column.key]}}</td>
     </tr>
   </table>
 </div>
-  <div *ngIf="!data">
-    <h2 >Your Data not found!!</h2>
-    <img src="../../assets/images/tenor.gif" >
+<div *ngIf="!tableObj.data">
+  <h2>Your Data not found!!</h2>
+  <img src="../../assets/images/tenor.gif">
 
 </div>

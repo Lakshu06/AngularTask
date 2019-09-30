@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { TableComponent } from './table/table.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { FilterPipe } from './filter';
+import { FilterPipe } from './shared/filter';
 import { FormsModule } from '@angular/forms';
 
 
