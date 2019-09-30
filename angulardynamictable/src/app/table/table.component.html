@@ -21,9 +21,9 @@
       <td *ngFor="let column of tableObj.headers ">{{record[column.key]}}</td>
     </tr>
   </table>
-</div>
-<div *ngIf="!tableObj.data">
+  <div *ngIf="!tableObj.data">
   <h2>Your Data not found!!</h2>
   <img src="../../assets/images/tenor.gif">
 
+</div>
 </div>
