@@ -1,5 +1,5 @@
 <div class="tableview">
-  <table *ngIf="tableObj.data">
+  <table *ngIf="tableObj.data" #myTable>
     <tr>
       <th *ngFor="let column of tableObj['headers']">
         <div>
@@ -16,19 +16,20 @@
         <i *ngIf="column['sort']" class="fa fa-sort-asc" aria-hidden="true" (click)="Asecsort(column.key)"></i>
       </th>
     </tr>
-
-    <tr *ngFor="let record of tableObj.data | filter : x : searchString;">
-      
+    
+    <tr *ngFor="let record of tableObj.data | filter : x : searchString as result">
+       
       <td *ngFor="let column of tableObj.headers ">{{record[column.key]}}</td>
-     
+ 
     </tr>
-    
-    
   </table>
+  <div *ngIf="(tableObj.data | filter : x : searchString).length===0 "><h2>Your Data not found!!</h2>
+    <img src="../../assets/images/tenor.gif"></div> 
   <div *ngIf="!tableObj.data">
+
       <h2>Your Data not found!!</h2>
       <img src="../../assets/images/tenor.gif">
     
     </div>
   
-</div>
+  </div>

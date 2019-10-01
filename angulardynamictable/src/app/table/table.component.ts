@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, SelectControlValueAccessor } from '@angular/forms';
+
 import { Input } from '@angular/core';
+import { FilterPipe } from 'src/app/table/shared/filter';
+
 
 
 
@@ -10,14 +12,29 @@ import { Input } from '@angular/core';
 	styleUrls: ['./table.component.css']
 })
 export class TableComponent implements OnInit {
-	x: any;
-	@Input() tableObj: any;
+	x: any ;
+	@Input() tableObj: any ;
 	
 	public searchString: any;
+	
 
 	constructor() {
 	}
 
+	transform(items: any[], field: string, value: any): any[] {
+
+        if (!items) {
+            return []; 
+               }
+
+        if (!field || !value) {
+            return items;
+        }
+        return items.filter(singleItem =>
+            singleItem[field].toLowerCase().indexOf(value.toLowerCase()) !=-1)
+        ;
+	}
+	
 	Asecsort(keyname) {
 		for (let key of this.tableObj.data) {
 			if (!isNaN(key[keyname])) {
